@@ -2,6 +2,7 @@ package com.detoxtypescriptreactnativeandroidiosautomation;
 
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
+import androidx.test.rule.ActivityTestRule;
 
 import com.wix.detox.Detox;
 import com.wix.detox.config.DetoxConfig;
@@ -14,10 +15,10 @@ import org.junit.runner.RunWith;
 @LargeTest
 public class DetoxTest {
     @Rule
-    public DetoxConfig detoxConfig = new DetoxConfig();
+    public ActivityTestRule<MainActivity> activityRule = new ActivityTestRule<>(MainActivity.class, false, false);
 
     @Test
     public void runDetoxTests() {
-        Detox.runTests(detoxConfig);
+        Detox.runTests(activityRule, new DetoxConfig());
     }
 }

@@ -4,7 +4,7 @@ import { expectVisibleById } from "../support/waits";
 
 export class DashboardScreen {
   async waitUntilLoaded(): Promise<void> {
-    await expectVisibleById(TEST_IDS.dashboard.screen);
+    await expectVisibleById(TEST_IDS.dashboard.header);
   }
 
   async expectWelcomeHeader(): Promise<void> {

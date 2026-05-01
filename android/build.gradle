@@ -20,6 +20,31 @@ buildscript {
 
 apply plugin: "com.facebook.react.rootproject"
 
+subprojects { subproject ->
+    subproject.plugins.withId("com.android.application") {
+        subproject.tasks.withType(JavaCompile).configureEach {
+            sourceCompatibility = JavaVersion.VERSION_17.toString()
+            targetCompatibility = JavaVersion.VERSION_17.toString()
+        }
+    }
+    subproject.plugins.withId("com.android.library") {
+        subproject.tasks.withType(JavaCompile).configureEach {
+            sourceCompatibility = JavaVersion.VERSION_17.toString()
+            targetCompatibility = JavaVersion.VERSION_17.toString()
+        }
+    }
+    subproject.plugins.withId("org.jetbrains.kotlin.android") {
+        subproject.tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+            kotlinOptions.jvmTarget = "17"
+        }
+    }
+    subproject.plugins.withId("org.jetbrains.kotlin.jvm") {
+        subproject.tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+            kotlinOptions.jvmTarget = "17"
+        }
+    }
+}
+
 allprojects {
     repositories {
         maven {

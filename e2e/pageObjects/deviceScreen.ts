@@ -4,7 +4,7 @@ import { expectTextById, expectVisibleById } from "../support/waits";
 
 export class DeviceScreen {
   async waitUntilLoaded(): Promise<void> {
-    await expectVisibleById(TEST_IDS.device.screen);
+    await expectVisibleById(TEST_IDS.device.startButton);
   }
 
   async expectHeader(text: string): Promise<void> {

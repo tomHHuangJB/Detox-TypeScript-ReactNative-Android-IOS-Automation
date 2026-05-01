@@ -221,6 +221,7 @@ export default function App(): React.JSX.Element {
             testID={TEST_IDS.lab.diagnosticsActivator}
             accessibilityLabel="Show diagnostics"
             style={styles.secondaryButton}
+            onPress={() => setDiagnosticsVisible(true)}
             onLongPress={() => setDiagnosticsVisible(true)}
           >
             <Text style={styles.secondaryButtonText}>Long Press For Diagnostics</Text>

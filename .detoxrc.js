@@ -23,7 +23,7 @@ module.exports = {
       testBinaryPath:
         "android/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk",
       build:
-        "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug"
+        "cd android && ./gradlew clean assembleDebug assembleAndroidTest -DtestBuildType=debug -PreactNativeArchitectures=x86_64"
     }
   },
   devices: {
@@ -36,7 +36,9 @@ module.exports = {
     emulator: {
       type: "android.emulator",
       device: {
-        avdName: "Pixel_5"
+        avdName: "Pixel_5",
+        readonly: false,
+        gpuMode: "swiftshader_indirect"
       }
     }
   },

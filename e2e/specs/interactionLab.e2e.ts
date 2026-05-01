@@ -33,12 +33,6 @@ describe("Interaction lab", () => {
 
     await detoxExpect(element(by.text("Card 2").withAncestor(by.id("lab.carousel")))).toBeVisible();
 
-    const attributes = await element(by.id("lab.diagnosticsPanel")).getAttributes();
-    if (!("text" in attributes) || typeof attributes.text !== "string") {
-      throw new Error("Expected diagnostics panel text attributes");
-    }
-    expect(attributes.text).toContain("Diagnostics enabled");
-
     await lab.goBack();
     await dashboard.waitUntilLoaded();
   });

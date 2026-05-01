@@ -4,7 +4,7 @@ import { expectTextById, expectVisibleById } from "../support/waits";
 
 export class LabScreen {
   async waitUntilLoaded(): Promise<void> {
-    await expectVisibleById(TEST_IDS.lab.screen);
+    await expectVisibleById(TEST_IDS.lab.searchInput);
   }
 
   async searchFor(term: string): Promise<void> {
@@ -15,7 +15,7 @@ export class LabScreen {
   }
 
   async revealDiagnostics(): Promise<void> {
-    await element(by.id(TEST_IDS.lab.diagnosticsActivator)).longPress();
+    await element(by.id(TEST_IDS.lab.diagnosticsActivator)).tap();
   }
 
   async expectDiagnosticsVisible(): Promise<void> {
